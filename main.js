@@ -59,6 +59,10 @@ class Sun2000 extends utils.Adapter {
 			},
 			cb: {
 				tou : false
+			},
+			rtumeter:{
+				active:false,
+				device:""
 			}
 		};
 
@@ -339,6 +343,9 @@ class Sun2000 extends utils.Adapter {
 			this.settings.sl.meterId = this.config.sl_meterId;
 			//battery charge control
 			this.settings.cb.tou = this.config.cb_tou;
+			//rtumeter
+			this.settings.rtumeter.active=this.config.rtumeter_active;
+			this.settings.rtumeter.device=this.config.rtumeter_dev;
 
 			if (this.settings.modbusAdjust) {
 				await this.setState('info.JSONhealth', {val: '{message: "Adjust modbus settings"}', ack: true});
@@ -354,7 +361,7 @@ class Sun2000 extends utils.Adapter {
 						duration: 5000,
 						modbusId: id,
 						driverClass: driverClasses.inverter,
-						meter: (i==0 && !this.settings.sl.active),
+						meter: (i==0 && !this.settings.sl.active && !this.settings.rtumeter.active),
 						numberBatteryUnits : 0
 					});
 				}
@@ -384,6 +391,14 @@ class Sun2000 extends utils.Adapter {
 						modbusId: this.settings.sd.sDongleId,
 						driverClass: driverClasses.sdongle
 					});
+				}
+				//rtumeter
+				if (this.settings.rtumeter.active && !this.settings.sl.active){
+					this.devices.push({
+						index:0,
+						duration :0,
+						driverClass: driverClasses.rtumeter
+					})
 				}
 
 				await this.adjustInverval();

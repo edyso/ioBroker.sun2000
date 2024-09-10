@@ -275,6 +275,28 @@
                 }
             }
         },
+        "tab7": {
+            "type":"panel",
+            "label":"meter",
+            "items":{
+                "hdr7":{
+                    "newLine":true,
+                    "type":"header",
+                    "text":"Serial RTU Meter",
+                    "size":2
+                },
+                "rtumeter_active":{
+                    "type":"checkbox",
+                    "newLine":true,
+                    "label":"serial Meter"
+                },
+                "rtumeter_dev":{
+                    "type":"text",
+                    "label":"Device",
+                    "newLine": true
+                }
+            }
+        },
         "tab6": {
             "type": "panel",
             "label": "help",
