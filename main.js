@@ -394,7 +394,8 @@ class Sun2000 extends utils.Adapter {
 				}
 				//rtumeter
 				if (this.settings.rtumeter.active && !this.settings.sl.active){
-					this.devices.push({
+					if (this.settings.rtumeter.device.length==0) this.logger.warn("no device for rtu-meter stored");
+					else this.devices.push({
 						index:0,
 						duration :0,
 						driverClass: driverClasses.rtumeter
