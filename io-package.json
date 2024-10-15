@@ -3,7 +3,7 @@
     "name": "sun2000",
     "version": "0.13.0",
     "news": {
-"0.13.0": {
+      "0.13.0": {
         "en": "improve Modbus reconnection #116\nconfiguration update\nsimple Integration of Huawei Emma (Huawei Energy Management Assistant) #63",
         "de": "modbus-Reconnection #116 verbessern\nkonfigurationsupdate\neinfache Integration von Huawei Emma (Huawei Energy Management Assistant) #63",
         "ru": "#116\nобновление\nпростая интеграция Huawei Эмма (Huawei Energy Management Assistant) #63",

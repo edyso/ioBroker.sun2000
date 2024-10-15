@@ -332,7 +332,7 @@
                     "newLine": true
                 }
             }
-        },
+        },  
         "tab6": {
             "type": "panel",
             "label": "help",
