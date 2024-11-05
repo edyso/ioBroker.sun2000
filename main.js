@@ -61,15 +61,11 @@ class Sun2000 extends utils.Adapter {
 			},
 			ds: {
 				batteryUnits : true,
-<<<<<<< HEAD
 				batterPacks : false
 			},
 			rtumeter:{
 				active:false,
 				device:""
-=======
-				batteryPacks : false
->>>>>>> ab0c66eefb78a5e088c99870a99f530a875fd073
 			}
 		};
 
