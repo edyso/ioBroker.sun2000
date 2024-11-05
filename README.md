@@ -28,7 +28,7 @@ Read and write register data from Huawei SUN2000 inverter and LUNA2000 battery u
 Feel free to follow the discussions in the german [iobroker forum](https://forum.iobroker.net/topic/71768/test-adapter-sun2000-v0-1-x-huawei-wechselrichter)
 
 ## Dependencies
-* Node.js 18.x or higher
+* Node.js 18.18.0 or higher
 * ioBroker host (js-controller) 5.0.19 or higher
 * ioBroker admin 5.1.13 or higher
 
@@ -44,6 +44,7 @@ browse in the [wiki](https://github.com/bolliy/ioBroker.sun2000/wiki)
 * HUAWEI Luna2000 Battery
 * HUAWEI Smart Power Sensor DTSU666-H or DDSU666-H
 * HUAWEI Smart Logger / min. Softwareversion: V300R023C10SPC311
+* HUAWEI EMMA / min. Softwareversion: V100R024C00SPC101
 
 ## Feature list
 
@@ -64,6 +65,35 @@ browse in the [wiki](https://github.com/bolliy/ioBroker.sun2000/wiki)
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+* adjust for Responsive Design #134
+* Upgrade to ESLint 9.x
+* node >= v18.18.0
+* modbus-proxy: enabled reading data via input register
+
+### 0.16.0 (2024-11-01)
+* dependency and configuration updates
+* read additional register data of Huawei Emma
+
+### 0.15.2 (2024-10-30)
+* EMMA Device was not initialized
+
+### 0.15.1 (2024-10-28)
+* SDongle data was not written as object states
+* adjust the adapter settings
+
+### 0.15.0 (2024-10-24)
+* dependency and configuration updates
+* display a clearly legible table bar #121
+* modbus-proxy write data also to the read cache #119
+
+### 0.14.0 (2024-10-20)
+* adjust for Responsive Design #121
+* lock on asynchronous modbus code
+* writing data ​​via the modbus-proxy #119
+* read additional register data of Huawei Emma
+
 ### 0.13.0 (2024-10-11)
 * improve Modbus reconnection #116
 * configuration update

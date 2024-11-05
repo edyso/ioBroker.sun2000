@@ -1,6 +1,9 @@
 {
     "i18n": true,
     "type": "tabs",
+    "tabsStyle": {
+        "width": "calc(100% - 100px)"
+    },
     "items": {
         "mainTab": {
             "type": "panel",
@@ -8,14 +11,24 @@
             "items": {
                 "donateTxt": {
                     "type": "staticText",
-                    "text": "donateTxt"
+                    "text": "donateTxt",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "donateImage": {
                     "type": "staticImage",
                     "label": "label",
                     "href" : "https://www.paypal.com/donate/?hosted_button_id=ZTX3VP9LZBDCG",
                     "src" : "paypal-button.png",
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 6,
+                    "sm": 4,
+                    "md": 2,
+                    "lg": 2,
+                    "xl": 2
                 },
                 "mainHdr1": {
                     "newLine": true,
@@ -27,8 +40,12 @@
                     "type": "select",
                     "label": "Huawei Device Integration",
                     "options":[{"label": "SDongle (communication expansion module)", "value":0}, {"label": "SmartLogger (monitors and manages PV and energy storage systems)", "value":1},{"label": "EMMA (Huawei Energy Management Assistant)", "value":2}],
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
                     "lg": 4,
-                    "newLine": true
+                    "xl": 4
                 },
                 "mainHdr2": {
                     "newLine": true,
@@ -40,10 +57,12 @@
                     "type": "text",
                     "label": "address",
                     "tooltip": "The device ip address",
+                    "newLine": true,
+                    "xs": 12,
                     "sm": 12,
-                    "md": 8,
-                    "lg": 2,
-                    "newLine": true
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "port": {
                     "type": "number",
@@ -52,17 +71,24 @@
                     "max" : 655565,
                     "default": 502,
                     "newLine": true,
-                    "tooltip": "The modbus TCP port"
+                    "tooltip": "The modbus TCP port",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "modbusIds": {
                     "type": "text",
                     "label": "Modbus inverter IDs",
-                    "sm": 12,
-                    "md": 8,
-                    "lg": 2,
                     "default": "1",
                     "newLine": true,
-                    "tooltip": "The modbus inverter IDs, separated with character ,"
+                    "tooltip": "The modbus inverter IDs, separated with character ,",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "updateInterval": {
                     "type": "number",
@@ -71,7 +97,12 @@
                     "max" : 120,
                     "default": 20,
                     "newLine": true,
-                    "tooltip": "Update interval to update the values from the inverters"
+                    "tooltip": "Update interval to update the values from the devices",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 }
             }    
         },
@@ -88,19 +119,35 @@
                 "chipsTxt": {
                     "type": "staticText",
                     "text": "Provides the collected data from the SDongle",
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "sd_active": {
                     "type": "checkbox",
                     "label": "sd.active",
                     "newLine": true,
-                    "tooltip": "SDongle active"
+                    "tooltip": "SDongle active",
+                    "disabled": "data.integration != 0",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 }, 
                 "sDongleId": {
                     "type": "text",
                     "label": "SDongleA modbus ID",
-                    "lg": 2,
-                    "newLine": true
+                    "disabled": "data.integration != 0",
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },    
                 "mainHdr2": {
                     "newLine": true,
@@ -111,9 +158,14 @@
                 "sl_meterId": {
                     "type": "text",
                     "label": "sl.meterId",
-                    "lg": 2,
                     "newLine": true,
-                    "tooltip": "The Meter modbus ID"
+                    "tooltip": "The Meter modbus ID",
+                    "disabled": "data.integration != 1",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "mainHdr3": {
                     "newLine": true,
@@ -124,7 +176,12 @@
                 "chipsTxt1": {
                     "type": "staticText",
                     "text": "Placeholder for future Settings",
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 }
             }
         },
@@ -140,39 +197,57 @@
                 },
                 "chipsTxt": {
                     "type": "staticText",
-                    "text": "Third party device such as wallbox, energy manager etc. can receive data even if the modbus interface of inverter is already in use. In addition you can mirror the sun2000 data to another IoBroker instance.",
-                    "newLine": true
+                    "text": "Third party device such as wallbox, energy manager etc. can receive and send data even if the modbus interface of inverter is already in use. In addition you can mirror the sun2000 data to another IoBroker instance.",
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "ms_active": {
                     "type": "checkbox",
                     "label": "ms.aktive",
                     "newLine": true,
-                    "tooltip": "Modbus-proxy via TCP for read-only is active"
+                    "tooltip": "Modbus-proxy via TCP is active",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 }, 
                 "ms_address": {
                     "type": "text",
                     "label": "ms.address",
                     "newLine": true,
                     "tooltip": "If want to listen only at localhost use 127.0.0.1",
+                    "xs": 12,
                     "sm": 12,
-                    "md": 8,
-                    "lg": 2
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "ms_port": {
                     "type": "port",
                     "label": "ms.port",
-                    "sm":3,
-                    "md":3,
-                    "lg":2,
-                    "xs":3,
                     "newLine": true,
-                    "tooltip" : "The Modbus-proxy TCP port"
+                    "tooltip" : "The Modbus-proxy TCP port",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "ms_log": {
                     "type": "checkbox",
                     "label": "ms.log",
                     "newLine": true,
-                    "tooltip": "Advanced logging"
+                    "tooltip": "Advanced logging",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 }
             }
         },
@@ -188,14 +263,24 @@
                 },
                 "chipsTxt1": {
                     "type": "staticText",
-                    "text": "This control is set in the opject path “sun2000.0.inverter.x.control.battery”",
-                    "newLine": true
+                    "text": "This control is set in the opject path `sun2000.0.inverter.x.control.battery`",
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "cb_tou": {
                     "type": "checkbox",
                     "label": "Create default TOU setting",
                     "newLine": true,
-                    "help": "The “default TOU settings” is interesting for the “force battery charging from the grid” function, which is required for variable energy prices."
+                    "help": "The `default TOU settings` is interesting for the `force battery charging from the grid` function, which is required for variable energy prices.",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "staticLink1": {
                     "type": "staticLink",
@@ -203,7 +288,12 @@
                     "href": "https://github.com/bolliy/ioBroker.sun2000/wiki/Battery-control",
                     "button": true,
                     "icon": "info",
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 3,
+                    "xl": 3
                 },
                 "mainHdr2": {
                     "newLine": true,
@@ -213,8 +303,13 @@
                 },
                 "chipsTxt2": {
                     "type": "staticText",
-                    "text": "This control is set in the opject path “sun2000.0.inverter.x.control.battery”",
-                    "newLine": true
+                    "text": "This control is set in the opject path `sun2000.0.inverter.x.control.battery`",
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "staticLink2": {
                     "type": "staticLink",
@@ -222,7 +317,12 @@
                     "href": "https://github.com/bolliy/ioBroker.sun2000/wiki/Erzwungenes-Laden-und-Entladen-der-Batterie-(Force-charge-discharge-battery)",
                     "button": true,
                     "icon": "info",
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 3,
+                    "xl": 3
                 },
                 "mainHdr3": {
                     "newLine": true,
@@ -232,8 +332,13 @@
                 },
                 "chipsTxt3": {
                     "type": "staticText",
-                    "text": "This control is set in the opject path “sun2000.0.inverter.0.control.grid”",
-                    "newLine": true
+                    "text": "This control is set in the opject path `sun2000.0.inverter.0.control.grid`",
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "staticLink3": {
                     "type": "staticLink",
@@ -241,7 +346,12 @@
                     "href": "https://github.com/bolliy/ioBroker.sun2000/wiki/Begrenzung-Netzeinspeisung-(Export-Control)",
                     "button": true,
                     "icon": "info",
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 3,
+                    "xl": 3
                 }
             }
         },  
@@ -259,13 +369,23 @@
                     "type": "checkbox",
                     "label": "battery units",
                     "newLine": true,
-                    "help": "This register data is stored in the opject path “sun2000.x.inverter.x.battery.unit”"
+                    "help": "This register data is stored in the opject path `sun2000.x.inverter.x.battery.unit`",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "ds_bp": {
                     "type": "checkbox",
                     "label": "battery packs",
                     "newLine": true,
-                    "help": "This register data is stored in the opject path “sun2000.x.inverter.x.battery.unit.x.pack”"
+                    "help": "This register data is stored in the opject path `sun2000.x.inverter.x.battery.unit.x.pack`",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 }
             }
         },
@@ -285,7 +405,12 @@
                     "min" : 5000,
                     "max" : 30000,
                     "newLine": true,
-                    "tooltip": "modbus connection timeout"
+                    "tooltip": "Modbus connection timeout",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },      
                 "delay": {
                     "type": "number",
@@ -293,7 +418,12 @@
                     "min" : 0,
                     "max" : 6000,
                     "newLine": true,
-                    "tooltip": "delay between modbus requests"
+                    "tooltip": "Delay between modbus requests",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "connectDelay": {
                     "type": "number",
@@ -301,13 +431,23 @@
                     "min" : 2000,
                     "max" : 10000,
                     "newLine": true,
-                    "tooltip": "delay after modbus connected"
+                    "tooltip": "Delay after modbus connected",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "autoAdjust": {
                     "type": "checkbox",
                     "label": "auto-adjust",
                     "newLine": true,
-                    "tooltip": "automatic adjustment of the modbus settings"
+                    "tooltip": "Automatic adjustment of the modbus settings",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 }          
             }
         },
@@ -346,7 +486,12 @@
                 "chipsTxt": {
                     "type": "staticText",
                     "text": "Do you need help? There are multiple ways of getting support. ",
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 4,
+                    "xl": 4
                 },
                 "staticLink1": {
                     "type": "staticLink",
@@ -354,7 +499,12 @@
                     "href": "https://github.com/bolliy/ioBroker.sun2000/wiki/Hilfe-(support)",
                     "icon": "info",
                     "button": true,
-                    "newLine": true
+                    "newLine": true,
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 6,
+                    "lg": 3,
+                    "xl": 3
                 }
             }   
         }    
